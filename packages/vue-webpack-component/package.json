@@ -1,0 +1,67 @@
+{
+  "name": "@nickzone/vue-webpack-component",
+  "version": "0.0.1",
+  "description": "vue基于webpack的组件打包模版",
+  "main": "/dist/index.js",
+  "scripts": {
+    "build": "webpack --progress --hide-modules --watch",
+    "prepublish": "npm run build && npm run changelog",
+    "preversion": "npm run changelog",
+    "lint": "eslint src/**/*.js demo/src/**/*.js",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commitlint": "commitlint -E HUSKY_GIT_PARAMS",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "webpack",
+    "component"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run commitlint"
+    }
+  },
+  "author": "wtinyk@gmai.com",
+  "license": "ISC",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "peerDependencies": {
+    "vue": "^2.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "autoprefixer": "^9.7.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-component": "^1.1.1",
+    "conventional-changelog-cli": "^2.0.28",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^6.7.1",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-vue": "^5.2.3",
+    "file-loader": "^3.0.1",
+    "husky": "^3.1.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.11.0",
+    "postcss": "^7.0.21",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^1.1.2",
+    "uglifyjs-webpack-plugin": "^2.1.1",
+    "url-loader": "^2.2.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0",
+    "webpack-transform-modules-plugin": "^0.4.4"
+  }
+}
